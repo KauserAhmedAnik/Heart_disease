@@ -26,7 +26,7 @@ def model_info():
     }
 
 @app.post("/predict", response_model=PredictionOutput)
-def predict_species(data:HeartInput):
+def predict_survival(data:HeartInput):
     """Make prediction from input features"""
     features = np.array([[data.age, data.sex, data.ca, data.cp,data.trestbps, data.chol, data.fbs, data.restecg, data.thalach, data.exang, data.oldpeak, data.slope, data.thal]])
     prediction = model.predict(features)[0]
